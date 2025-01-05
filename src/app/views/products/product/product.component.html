@@ -1,0 +1,19 @@
+<section class="products">
+  <div class="container">
+    <h2 class="products-title" id="products-title">
+      Описание пиццы
+    </h2>
+    <div class="product-item">
+        <div class="product-image">
+          <img src="{{product.image}}" alt="Pizza">
+        </div>
+      <custom-title [title]="product.title | uppercase"></custom-title>
+      <div class="product-text">
+        {{ product.description | wordUpper: 'сыр': 'томат' }}
+      </div>
+      <div class="product-action">
+        <a class="btn btn-add-to-cart" routerLink="/order" [queryParams]="{product: product.title}">В корзину</a>
+      </div>
+    </div>
+  </div>
+</section>

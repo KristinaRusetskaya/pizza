@@ -1,0 +1,18 @@
+<div class="product">
+  <div class="product-image" *ngIf="product.image; else defaultImageBlock">
+    <img src="{{product.image}}" alt="Pizza">
+  </div>
+  <ng-template #defaultImageBlock>
+    <div class="product-image" *ngIf="!product.image" >
+      <img src="../../../../assets/images/pizzzzza.png" alt="Pizza">
+    </div>
+  </ng-template>
+  <custom-title [title]="product.title | uppercase" #customTitle></custom-title>
+  <div class="product-text">
+    {{ product.description | wordUpper: 'сыр': 'томат' }}
+  </div>
+  <div class="product-action" #elem>
+    <a class="btn btn-add-to-cart" (click)="addProductToCard(customTitle.toUpper())">В корзину</a>
+    <a class="btn btn-white" [routerLink]="['/products', product.id]">Подробнее</a>
+  </div>
+</div>
